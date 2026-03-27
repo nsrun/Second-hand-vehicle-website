@@ -1,77 +1,102 @@
-# AutoNova ⚡
+<div align="center">
 
-**AutoNova** is a modern, high-performance, and feature-rich automotive marketplace platform. Originally built as a Django-based application, it has been fully migrated into a **purely static website** using HTML5, CSS3, and vanilla JavaScript.
+# ⚡ AutoNova ⚡
 
-This project serves as a comprehensive prototype for an Indian vehicle and spare parts marketplace, featuring advanced UI/UX components and client-side logic.
+**A Premium, Purely Static Automotive Marketplace Prototype**
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/autonova)
+[![Framework](https://img.shields.io/badge/UI_Framework-Bootstrap_5.3-7952b3.svg)](https://getbootstrap.com/)
+[![Status](https://img.shields.io/badge/Status-Complete-success.svg)]()
+[![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
 ---
 
-## 🚀 Features
+**AutoNova** is a high-performance, feature-rich automotive marketplace platform. Originally a Django application, it has been fully transformed into a **blazing-fast static website** using modern web standards.
+
+[**Explore Marketplace**](index.html) • [**Sell an Item**](sell.html) • [**AI Estimator**](estimator.html)
+
+</div>
+
+---
+
+## ✨ Key Features
 
 ### 🛒 Marketplace Ecosystem
-- **Dual Listings**: Specialized support for both complete **Vehicles** (Cars, Bikes, Trucks) and **Spare Parts** (Engines, Brakes, Tires).
-- **Advanced Browsing**: A robust [browse.html](browse.html) page with category-specific sidebars, multi-parameter filtering, and realistic sample data.
-- **Unified Selling Flow**: A streamlined [sell.html](sell.html) page that allows users to toggle between vehicle and part listing forms.
-- **Detailed Views**: [vehicle_detail.html](vehicle_detail.html) and [part_detail.html](part_detail.html) provide deep-dive information, technical specifications, and interactive seller cards.
+- **Dual-Category Support**: Seamlessly browse or list both **Complete Vehicles** and **Genuine Spare Parts**.
+- **Smart Filtering**: Advanced [browse.html](browse.html) with category-aware sidebars and real-time filtering logic.
+- **Detailed Specifications**: Deep-dive pages like [vehicle_detail.html](vehicle_detail.html) with interactive specs and seller trust cards.
 
-### 🤖 AI-Powered Estimators
-- **Vehicle Price Estimator**: Get instant market-value estimates for cars and bikes using custom client-side logic.
-- **Spare Part Estimator**: Specialized valuation tool for genuine parts based on condition and category.
-- **Client-Side Logic**: All estimation calculations are performed instantly in the browser via JavaScript.
+### 🤖 Intelligent Logic
+- **AI Price Estimators**: Instant market valuations for cars, bikes, and parts via custom client-side JavaScript engines.
+- **Dynamic UX**: Real-time form validation and smooth state transitions without page reloads.
 
-### 🎨 Visual & Interactive Experience
-- **Dynamic Hero Animation**: A complex HTML5 Canvas animation on the landing page featuring moving vehicles and road textures.
-- **Bootstrap 5 UI**: Fully responsive design using the latest Bootstrap framework with custom-styled "AutoNova" components.
-- **Componentized Design**: Consistent navigation bars and a multi-column global footer propagated across 18+ unique pages.
-
-### 👤 User & Informational Pages
-- **Interactive Dashboard**: A static dashboard for managing listings, messages, and viewing account statistics.
-- **Account Management**: Complete flow including Login, Register, Forgot Password, and Profile Settings.
-- **Legal & Help**: Comprehensive About, Contact, FAQ, Privacy Policy, and Terms of Service pages.
+### 🎨 Visual Excellence
+- **Canvas Hero Engine**: A custom road-animation engine on the landing page for an immersive entry experience.
+- **Componentized UI**: Unified design system across 18+ unique pages with shared global navigation and footers.
+- **Responsive-First**: Optimized for every device, from mobile handsets to ultra-wide displays.
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technology Stack
 
-- **HTML5 & CSS3**: Semantic structure and advanced styling.
-- **Bootstrap 5.3**: Responsive grid system and UI components.
-- **JavaScript (ES6+)**: Custom animations, price estimator logic, and UI interactions.
-- **Bootstrap Icons**: Consistent iconography across the platform.
-- **Google Fonts**: Premium typography using 'Sora' and 'DM Sans'.
+| Category | Technology | Usage |
+| :--- | :--- | :--- |
+| **Frontend** | `HTML5` / `CSS3` | Semantic structure & Modern styling |
+| **Framework** | `Bootstrap 5.3` | Grid system, Modals, & UI Components |
+| **Logic** | `Vanilla JS` | AI Estimators, Canvas Animations, & Filters |
+| **Icons** | `Bootstrap Icons` | Consistent iconography across the site |
+| **Fonts** | `Google Fonts` | Premium typography (Sora & DM Sans) |
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Architecture
 
-```text
+```bash
 autonova/
-├── css/               # Custom and library styles
-│   └── autonova.css   # Core design system
-├── js/                # Interactive scripts
-│   └── autonova.js    # Core animations and logic
-├── index.html         # Main landing page
-├── browse.html        # Marketplace listings
-├── sell.html          # Listing creation
-├── estimator.html     # AI Price Estimator
-├── dashboard.html     # User control panel
-└── ... (14 other functional & legal pages)
+├── css/                # Global Stylesheets
+│   └── autonova.css    # Core Design System & Components
+├── js/                 # Interaction Scripts
+│   └── autonova.js     # Hero Animations & Marketplace Logic
+├── index.html          # Entry Point (Landing Page)
+├── browse.html         # Listing Gallery & Search
+├── sell.html           # Unified Listing Creator
+├── estimator.html      # AI Price Valuation Engine
+├── dashboard.html      # User Portal & Analytics
+├── about.html          # Brand Story
+└── ... (10+ auxiliary pages)
 ```
 
 ---
 
-## 🚦 How to Run
+## � Interface Preview
 
-Since this is a static website, it does not require a backend server or database to run.
+<div align="center">
+  <img src="https://via.placeholder.com/800x450?text=AutoNova+Landing+Page" width="80%" alt="Landing Page Preview" />
+  <p><i>The dynamic landing page featuring the custom Canvas road animation.</i></p>
+</div>
 
-1. **Clone or Download** the repository to your local machine.
-2. **Open index.html** in any modern web browser (Chrome, Firefox, Safari, Edge).
-3. **Enjoy!** All features, including the estimators and filters, are functional via client-side logic.
+---
+
+## 🚦 Getting Started
+
+AutoNova is a **Zero-Dependency** project. No servers, databases, or complex setups required.
+
+1.  **Download** the source code.
+2.  **Double-click** on `index.html`.
+3.  **Browse** the marketplace!
 
 ---
 
-## 🇮🇳 Developed for the Indian Market
+## 🇮🇳 Designed for India
 
-AutoNova is designed with local context, including INR (₹) currency formatting, Indian vehicle categories, and realistic geographic locations across major Indian cities.
+Built with the Indian automotive market in mind:
+- **Currency**: Fully integrated INR (₹) formatting.
+- **Taxonomy**: Local categories like Hatchbacks, SUVs, and Bikes.
+- **Geography**: Sample data localized to major Indian hubs (Bangalore, Mumbai, Delhi).
 
 ---
-© 2026 AutoNova. All rights reserved.
+
+<div align="center">
+  <p>© 2026 AutoNova Marketplace. Built with ⚡ by the AutoNova Team.</p>
+  <a href="terms.html">Terms</a> • <a href="privacy.html">Privacy</a> • <a href="contact.html">Support</a>
+</div>
