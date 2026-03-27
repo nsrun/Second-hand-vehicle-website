@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AutoNova — Browse all vehicle and spare part categories.">
+  <title>All Categories — AutoNova</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- AutoNova CSS -->
+  <link rel="stylesheet" href="./css/autonova.css">
+</head>
+<body>
+
+<!-- ════ NAVBAR ════════════════════════════════════════════ -->
+<nav class="an-navbar" id="navbar">
+  <div class="an-nav-inner">
+
+    <!-- Brand -->
+    <a class="an-brand" href="index.html">
+      <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+      <span class="brand-text">Auto<span class="brand-accent">Nova</span></span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="an-nav-links">
+      <a class="an-nav-link" href="index.html">Home</a>
+      <a class="an-nav-link" href="browse.html">Browse All</a>
+      <a class="an-nav-link" href="browse.html?listing_type=vehicle">
+        <i class="bi bi-car-front" style="font-size:.8rem"></i> Vehicles
+      </a>
+      <a class="an-nav-link" href="browse.html?listing_type=sparepart">
+        <i class="bi bi-gear" style="font-size:.8rem"></i> Spare Parts
+      </a>
+
+      <!-- Categories dropdown -->
+      <div class="dropdown">
+        <a class="an-nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </a>
+        <ul class="dropdown-menu shadow border-0" style="min-width:380px">
+          <li><h6 class="dropdown-header"><i class="bi bi-car-front me-1 text-primary"></i>Vehicles</h6></li>
+          <li><a class="dropdown-item" href="browse.html?category=sedan"><i class="bi bi-car-front"></i> Sedan</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=suv"><i class="bi bi-truck-flat"></i> SUV</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=hatchback"><i class="bi bi-car-front"></i> Hatchback</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=bike"><i class="bi bi-bicycle"></i> Bikes</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=truck"><i class="bi bi-truck"></i> Trucks</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=luxury"><i class="bi bi-gem"></i> Luxury</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><h6 class="dropdown-header"><i class="bi bi-gear me-1" style="color:var(--gold)"></i>Spare Parts</h6></li>
+          <li><a class="dropdown-item" href="browse.html?category=engine"><i class="bi bi-cpu"></i> Engine</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=tires"><i class="bi bi-disc"></i> Tires</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=brakes"><i class="bi bi-stop-circle"></i> Brakes</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=transmission"><i class="bi bi-gear-wide-connected"></i> Transmission</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=electrical"><i class="bi bi-lightning-charge"></i> Electrical</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=accessories"><i class="bi bi-tools"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item fw-bold text-center text-primary" href="categories.html">View All Categories</a></li>
+        </ul>
+      </div>
+
+      <!-- Estimator dropdown -->
+      <div class="dropdown">
+        <a class="an-nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-calculator" style="font-size:.8rem"></i> Estimator
+        </a>
+        <ul class="dropdown-menu shadow border-0">
+          <li>
+            <a class="dropdown-item" href="estimator.html">
+              <i class="bi bi-car-front text-primary"></i>Vehicle Estimator
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="sparepart_estimator.html">
+              <i class="bi bi-gear" style="color:var(--gold)"></i>Spare Part Estimator
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right actions -->
+    <div class="an-nav-right">
+      <a href="login.html" class="btn btn-outline-secondary btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">
+        <i class="bi bi-person-plus"></i> Register
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="an-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Page content -->
+<main>
+<div class="an-page-header py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="fw-bold mb-2">Explore <span class="text-gradient">Categories</span></h1>
+        <p class="text-muted lead-sm">Find exactly what you're looking for across our entire marketplace.</p>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <!-- Vehicles Section -->
+    <div class="mb-5">
+        <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="an-icon-box bg-primary-subtle text-primary">
+                <i class="bi bi-car-front-fill fs-4"></i>
+            </div>
+            <h3 class="fw-bold mb-0">Vehicle Categories</h3>
+        </div>
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=sedan" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-car-front"></i></div>
+                    <div class="an-cat-name">Sedan</div>
+                    <div class="an-cat-count">450 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=suv" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-truck-flat"></i></div>
+                    <div class="an-cat-name">SUV</div>
+                    <div class="an-cat-count">320 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=hatchback" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-car-front"></i></div>
+                    <div class="an-cat-name">Hatchback</div>
+                    <div class="an-cat-count">280 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=bike" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-bicycle"></i></div>
+                    <div class="an-cat-name">Bikes</div>
+                    <div class="an-cat-count">560 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=truck" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-truck"></i></div>
+                    <div class="an-cat-name">Trucks</div>
+                    <div class="an-cat-count">120 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=luxury" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-gem"></i></div>
+                    <div class="an-cat-name">Luxury</div>
+                    <div class="an-cat-count">85 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=commercial" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-bus-front"></i></div>
+                    <div class="an-cat-name">Commercial</div>
+                    <div class="an-cat-count">110 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=other_vehicles" class="an-cat-card text-decoration-none h-100">
+                    <div class="an-cat-icon"><i class="bi bi-plus-circle"></i></div>
+                    <div class="an-cat-name">Other Vehicles</div>
+                    <div class="an-cat-count">45 listings</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5 opacity-5">
+
+    <!-- Spare Parts Section -->
+    <div>
+        <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="an-icon-box bg-warning-subtle text-warning">
+                <i class="bi bi-gear-fill fs-4"></i>
+            </div>
+            <h3 class="fw-bold mb-0">Spare Part Categories</h3>
+        </div>
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=engine" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-cpu"></i></div>
+                    <div class="an-cat-name">Engine</div>
+                    <div class="an-cat-count">1,200 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=tires" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-disc"></i></div>
+                    <div class="an-cat-name">Tires</div>
+                    <div class="an-cat-count">850 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=brakes" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-stop-circle"></i></div>
+                    <div class="an-cat-name">Brakes</div>
+                    <div class="an-cat-count">600 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=transmission" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-gear-wide-connected"></i></div>
+                    <div class="an-cat-name">Transmission</div>
+                    <div class="an-cat-count">420 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=electrical" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-lightning-charge"></i></div>
+                    <div class="an-cat-name">Electrical</div>
+                    <div class="an-cat-count">950 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=accessories" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-tools"></i></div>
+                    <div class="an-cat-name">Accessories</div>
+                    <div class="an-cat-count">2,100 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=suspension" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-wrench"></i></div>
+                    <div class="an-cat-name">Suspension</div>
+                    <div class="an-cat-count">340 listings</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="browse.html?category=body_parts" class="an-cat-card an-cat-part text-decoration-none h-100">
+                    <div class="an-cat-icon text-warning"><i class="bi bi-door-open"></i></div>
+                    <div class="an-cat-name">Body Parts</div>
+                    <div class="an-cat-count">780 listings</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- ════ FOOTER ═════════════════════════════════════════════ -->
+<footer style="background:var(--i800);color:rgba(255,255,255,.6);padding:4rem 0 2rem;margin-top:4rem">
+  <div class="container" style="max-width:var(--max-w)">
+    <div class="row g-4 pb-4" style="border-bottom:1px solid rgba(255,255,255,.08)">
+
+      <!-- Brand column -->
+      <div class="col-lg-4">
+        <a href="index.html" class="an-brand mb-3 d-inline-flex" style="color:rgba(255,255,255,.9)">
+          <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+          <span class="brand-text">Auto<span class="brand-accent" style="color:#93b4ff">Nova</span></span>
+        </a>
+        <p style="font-size:.875rem;line-height:1.7;max-width:280px;margin-top:.75rem">
+          India's dedicated marketplace for buying and selling vehicles and genuine spare parts. Get AI-powered price estimates before you list.
+        </p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)">𝕏</a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)">f</a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)"><i class="bi bi-instagram" style="font-size:.85rem"></i></a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)"><i class="bi bi-youtube" style="font-size:.85rem"></i></a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Company</h6>
+        <a href="about.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">About Us</a>
+        <a href="contact.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Contact Us</a>
+        <a href="faq.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">FAQs</a>
+        <a href="privacy.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Privacy Policy</a>
+        <a href="terms.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Terms of Service</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-6 col-lg-2">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Quick Links</h6>
+        <a href="browse.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Browse All</a>
+        <a href="sell.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Sell Item</a>
+        <a href="categories.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">All Categories</a>
+        <a href="estimator.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">AI Estimator</a>
+      </div>
+
+      <!-- Account -->
+      <div class="col-6 col-lg-2">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Account</h6>
+        <a href="login.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Login</a>
+        <a href="register.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Register</a>
+        <a href="dashboard.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Dashboard</a>
+      </div>
+
+    </div>
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-3">
+      <small style="color:rgba(255,255,255,.35)">© 2026 AutoNova. All rights reserved. India's Vehicle Marketplace.</small>
+      <small style="color:rgba(255,255,255,.25)">AI Estimator can make mistakes — please verify important details.</small>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/autonova.js"></script>
+</body>
+</html>

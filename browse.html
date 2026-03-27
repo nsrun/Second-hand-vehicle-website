@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AutoNova — India's trusted marketplace for buying and selling vehicles and genuine spare parts.">
+  <title>Browse — AutoNova</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- AutoNova CSS -->
+  <link rel="stylesheet" href="./css/autonova.css">
+</head>
+<body>
+
+<!-- ════ NAVBAR ════════════════════════════════════════════ -->
+<nav class="an-navbar" id="navbar">
+  <div class="an-nav-inner">
+
+    <!-- Brand -->
+    <a class="an-brand" href="index.html">
+      <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+      <span class="brand-text">Auto<span class="brand-accent">Nova</span></span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="an-nav-links">
+      <a class="an-nav-link" href="index.html">Home</a>
+      <a class="an-nav-link active" href="browse.html">Browse All</a>
+      <a class="an-nav-link" href="browse.html?listing_type=vehicle">
+        <i class="bi bi-car-front" style="font-size:.8rem"></i> Vehicles
+      </a>
+      <a class="an-nav-link" href="browse.html?listing_type=sparepart">
+        <i class="bi bi-gear" style="font-size:.8rem"></i> Spare Parts
+      </a>
+
+      <!-- Categories dropdown -->
+      <div class="dropdown">
+        <a class="an-nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </a>
+        <ul class="dropdown-menu shadow border-0" style="min-width:380px">
+          <li><h6 class="dropdown-header"><i class="bi bi-car-front me-1 text-primary"></i>Vehicles</h6></li>
+          <li><a class="dropdown-item" href="browse.html?category=sedan"><i class="bi bi-car-front"></i> Sedan</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=suv"><i class="bi bi-truck-flat"></i> SUV</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=hatchback"><i class="bi bi-car-front"></i> Hatchback</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=bike"><i class="bi bi-bicycle"></i> Bikes</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=truck"><i class="bi bi-truck"></i> Trucks</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=luxury"><i class="bi bi-gem"></i> Luxury</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><h6 class="dropdown-header"><i class="bi bi-gear me-1" style="color:var(--gold)"></i>Spare Parts</h6></li>
+          <li><a class="dropdown-item" href="browse.html?category=engine"><i class="bi bi-cpu"></i> Engine</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=tires"><i class="bi bi-disc"></i> Tires</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=brakes"><i class="bi bi-stop-circle"></i> Brakes</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=transmission"><i class="bi bi-gear-wide-connected"></i> Transmission</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=electrical"><i class="bi bi-lightning-charge"></i> Electrical</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=accessories"><i class="bi bi-tools"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item fw-bold text-center text-primary" href="categories.html">View All Categories</a></li>
+        </ul>
+      </div>
+
+      <!-- Estimator dropdown -->
+      <div class="dropdown">
+        <a class="an-nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-calculator" style="font-size:.8rem"></i> Estimator
+        </a>
+        <ul class="dropdown-menu shadow border-0">
+          <li>
+            <a class="dropdown-item" href="estimator.html">
+              <i class="bi bi-car-front text-primary"></i>Vehicle Estimator
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="sparepart_estimator.html">
+              <i class="bi bi-gear" style="color:var(--gold)"></i>Spare Part Estimator
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right actions -->
+    <div class="an-nav-right">
+      <a href="login.html" class="btn btn-outline-secondary btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">
+        <i class="bi bi-person-plus"></i> Register
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="an-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Page content -->
+<main>
+<div class="an-page-header py-4 mb-4">
+    <div class="container">
+        <h1 class="fw-bold mb-1">Browse Listings</h1>
+        <p class="text-muted mb-0">8 results found</p>
+    </div>
+</div>
+<div class="container pb-5">
+    <div class="row g-4">
+        <!-- Filters -->
+        <div class="col-lg-3">
+            <div class="an-filter-card mb-3">
+                <h6 class="fw-bold mb-3"><i class="bi bi-sliders me-2"></i>Filters</h6>
+                <form action="browse.html" method="GET">
+                    <div class="mb-3"><label class="form-label fw-semibold small">Search</label><input type="text" name="query" class="form-control" placeholder="Search..."></div>
+                    <div class="mb-3"><label class="form-label fw-semibold small">Type</label>
+                      <select name="listing_type" class="form-select">
+                        <option value="">All</option>
+                        <option value="vehicle">Vehicles</option>
+                        <option value="sparepart">Spare Parts</option>
+                      </select>
+                    </div>
+                    <div class="mb-3"><label class="form-label fw-semibold small">Category</label>
+                      <select name="category" class="form-select">
+                        <option value="">All Categories</option>
+                        <optgroup label="Vehicles">
+                          <option value="sedan">Sedan</option>
+                          <option value="suv">SUV</option>
+                          <option value="hatchback">Hatchback</option>
+                          <option value="bike">Bikes</option>
+                          <option value="truck">Trucks</option>
+                          <option value="luxury">Luxury</option>
+                        </optgroup>
+                        <optgroup label="Spare Parts">
+                          <option value="engine">Engine</option>
+                          <option value="tires">Tires</option>
+                          <option value="brakes">Brakes</option>
+                          <option value="transmission">Transmission</option>
+                          <option value="electrical">Electrical</option>
+                          <option value="accessories">Accessories</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100"><i class="bi bi-search me-1"></i>Apply Filters</button>
+                    <a href="browse.html" class="btn btn-outline-secondary w-100 mt-2">Clear All</a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="col-lg-9">
+            <div class="row g-4">
+                <!-- 1. Car -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Tesla Model 3" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-primary position-absolute top-0 end-0 m-2">₹ 45,00,000</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Tesla Model 3</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-geo-alt"></i> Bangalore, KA</p>
+                      <a href="vehicle_detail.html" class="btn btn-sm btn-outline-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 2. Bike -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Harley Davidson" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-primary position-absolute top-0 end-0 m-2">₹ 12,50,000</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Harley Davidson Iron 883</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-geo-alt"></i> Mumbai, MH</p>
+                      <a href="vehicle_detail.html" class="btn btn-sm btn-outline-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3. SUV -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Toyota Fortuner" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-primary position-absolute top-0 end-0 m-2">₹ 32,00,000</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Toyota Fortuner Sigma 4</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-geo-alt"></i> Delhi, NCR</p>
+                      <a href="vehicle_detail.html" class="btn btn-sm btn-outline-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 4. Spare Part: Brake -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Brake Pad" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">₹ 2,500</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Ceramic Brake Pads</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-gear"></i> Brembo • Brakes</p>
+                      <a href="part_detail.html" class="btn btn-sm btn-outline-warning w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 5. Spare Part: Tire -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1549027641-ce74810167c8?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Tire" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">₹ 5,800</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Michelin Pilot Sport 4</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-gear"></i> Michelin • Tires</p>
+                      <a href="part_detail.html" class="btn btn-sm btn-outline-warning w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 6. Spare Part: Oil -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1621359953275-358129334356?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Engine Oil" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">₹ 1,200</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Castrol EDGE 5W-30</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-gear"></i> Castrol • Engine</p>
+                      <a href="part_detail.html" class="btn btn-sm btn-outline-warning w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 7. Spare Part: Headlight -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1635773100239-d37f3977c5e6?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Headlight" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">₹ 8,500</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">LED Projector Headlights</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-gear"></i> Philips • Electrical</p>
+                      <a href="part_detail.html" class="btn btn-sm btn-outline-warning w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 8. Truck -->
+                <div class="col-sm-6 col-xl-4">
+                  <div class="an-card shadow-sm border-0 h-100">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1586191582151-f7463234724a?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Tata Prima" style="height:180px; object-fit:cover;">
+                      <span class="badge bg-primary position-absolute top-0 end-0 m-2">₹ 28,00,000</span>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title fw-bold">Tata Prima LX 2523</h6>
+                      <p class="card-text text-muted small"><i class="bi bi-geo-alt"></i> Chennai, TN</p>
+                      <a href="vehicle_detail.html" class="btn btn-sm btn-outline-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- ════ FOOTER ═════════════════════════════════════════════ -->
+<footer style="background:var(--i800);color:rgba(255,255,255,.6);padding:4rem 0 2rem;margin-top:4rem">
+  <div class="container" style="max-width:var(--max-w)">
+    <div class="row g-4 pb-4" style="border-bottom:1px solid rgba(255,255,255,.08)">
+
+      <!-- Brand column -->
+      <div class="col-lg-4">
+        <a href="index.html" class="an-brand mb-3 d-inline-flex" style="color:rgba(255,255,255,.9)">
+          <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+          <span class="brand-text">Auto<span class="brand-accent">Nova</span></span>
+        </a>
+        <p style="font-size:.875rem;line-height:1.7;max-width:280px;margin-top:.75rem">
+          India's dedicated marketplace for buying and selling vehicles and genuine spare parts. Get AI-powered price estimates before you list.
+        </p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)">𝕏</a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)">f</a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)"><i class="bi bi-instagram" style="font-size:.85rem"></i></a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)"><i class="bi bi-youtube" style="font-size:.85rem"></i></a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Company</h6>
+        <a href="about.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">About Us</a>
+        <a href="contact.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Contact Us</a>
+        <a href="faq.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">FAQs</a>
+        <a href="privacy.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Privacy Policy</a>
+        <a href="terms.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Terms of Service</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-6 col-lg-2">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Quick Links</h6>
+        <a href="browse.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Browse All</a>
+        <a href="sell.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Sell Item</a>
+        <a href="categories.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">All Categories</a>
+        <a href="estimator.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">AI Estimator</a>
+      </div>
+
+      <!-- Account -->
+      <div class="col-6 col-lg-2">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Account</h6>
+        <a href="login.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Login</a>
+        <a href="register.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Register</a>
+        <a href="dashboard.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Dashboard</a>
+      </div>
+
+    </div>
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-3">
+      <small style="color:rgba(255,255,255,.35)">© 2026 AutoNova. All rights reserved. India's Vehicle Marketplace.</small>
+      <small style="color:rgba(255,255,255,.25)">AI Estimator can make mistakes — please verify important details.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/autonova.js"></script>
+</body>
+</html>
