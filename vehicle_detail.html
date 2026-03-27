@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AutoNova — View vehicle details, specifications, and seller information.">
+  <title>Tesla Model 3 — AutoNova</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- AutoNova CSS -->
+  <link rel="stylesheet" href="./css/autonova.css">
+  <style>
+    .vehicle-img-main {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .spec-item {
+      padding: 1.25rem;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .seller-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      position: sticky;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════ NAVBAR ════════════════════════════════════════════ -->
+<nav class="an-navbar" id="navbar">
+  <div class="an-nav-inner">
+
+    <!-- Brand -->
+    <a class="an-brand" href="index.html">
+      <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+      <span class="brand-text">Auto<span class="brand-accent">Nova</span></span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="an-nav-links">
+      <a class="an-nav-link" href="index.html">Home</a>
+      <a class="an-nav-link" href="browse.html">Browse All</a>
+      <a class="an-nav-link" href="browse.html?listing_type=vehicle">
+        <i class="bi bi-car-front" style="font-size:.8rem"></i> Vehicles
+      </a>
+      <a class="an-nav-link" href="browse.html?listing_type=sparepart">
+        <i class="bi bi-gear" style="font-size:.8rem"></i> Spare Parts
+      </a>
+
+      <!-- Categories dropdown -->
+      <div class="dropdown">
+        <a class="an-nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </a>
+        <ul class="dropdown-menu shadow border-0" style="min-width:380px">
+          <li><h6 class="dropdown-header"><i class="bi bi-car-front me-1 text-primary"></i>Vehicles</h6></li>
+          <li><a class="dropdown-item" href="browse.html?category=sedan"><i class="bi bi-car-front"></i> Sedan</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=suv"><i class="bi bi-truck-flat"></i> SUV</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=hatchback"><i class="bi bi-car-front"></i> Hatchback</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><h6 class="dropdown-header"><i class="bi bi-gear me-1" style="color:var(--gold)"></i>Spare Parts</h6></li>
+          <li><a class="dropdown-item" href="browse.html?category=engine"><i class="bi bi-cpu"></i> Engine</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=tires"><i class="bi bi-disc"></i> Tires</a></li>
+          <li><a class="dropdown-item" href="browse.html?category=brakes"><i class="bi bi-stop-circle"></i> Brakes</a></li>
+        </ul>
+      </div>
+
+      <!-- Estimator dropdown -->
+      <div class="dropdown">
+        <a class="an-nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-calculator" style="font-size:.8rem"></i> Estimator
+        </a>
+        <ul class="dropdown-menu shadow border-0">
+          <li>
+            <a class="dropdown-item" href="estimator.html">
+              <i class="bi bi-car-front text-primary"></i>Vehicle Estimator
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="sparepart_estimator.html">
+              <i class="bi bi-gear" style="color:var(--gold)"></i>Spare Part Estimator
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right actions -->
+    <div class="an-nav-right">
+      <a href="login.html" class="btn btn-outline-secondary btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">
+        <i class="bi bi-person-plus"></i> Register
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="an-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Page content -->
+<main class="container py-5 mt-5">
+  <div class="row g-5">
+    
+    <!-- Left: Content -->
+    <div class="col-lg-8">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="browse.html?listing_type=vehicle">Vehicles</a></li>
+          <li class="breadcrumb-item active">Tesla Model 3</li>
+        </ol>
+      </nav>
+
+      <!-- Main Image -->
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80" class="vehicle-img-main shadow-sm mb-4" alt="Tesla Model 3">
+      
+      <!-- Title & Price -->
+      <div class="d-flex justify-content-between align-items-start mb-4">
+        <div>
+          <h1 class="fw-bold mb-1">Tesla Model 3 (2022)</h1>
+          <p class="text-muted"><i class="bi bi-geo-alt me-1"></i>Indiranagar, Bangalore</p>
+        </div>
+        <div class="text-end">
+          <h2 class="fw-bold text-primary mb-0">₹ 45,00,000</h2>
+          <span class="badge bg-success-subtle text-success mt-1">Negotiable</span>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- Specifications -->
+      <h4 class="fw-bold mb-4">Specifications</h4>
+      <div class="row g-3 mb-5">
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">Brand</span>
+            <span class="fw-bold">Tesla</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">Model</span>
+            <span class="fw-bold">Model 3</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">Year</span>
+            <span class="fw-bold">2022</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">Condition</span>
+            <span class="fw-bold">Like New</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">Fuel Type</span>
+            <span class="fw-bold">Electric</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">KM Driven</span>
+            <span class="fw-bold">8,500 km</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">No. of Owners</span>
+            <span class="fw-bold">1st Owner</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spec-item">
+            <span class="text-muted small">Insurance</span>
+            <span class="fw-bold">Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <h4 class="fw-bold mb-3">Description</h4>
+      <p class="text-muted lead-sm mb-5" style="line-height:1.8">
+        Immaculate condition Tesla Model 3. Long range battery, all-wheel drive. 
+        Features full self-driving capability, premium white interior, and glass roof. 
+        Rarely driven, mostly charged at home. Still under warranty.
+      </p>
+
+    </div>
+
+    <!-- Right: Seller Card -->
+    <div class="col-lg-4">
+      <div class="seller-card shadow-sm">
+        <div class="text-center mb-4">
+          <div class="an-avatar-lg mx-auto mb-3" style="width:80px;height:80px;font-size:2rem">AK</div>
+          <h5 class="fw-bold mb-1">Aditya Kumar</h5>
+          <p class="text-muted small">Member since Jan 2024</p>
+        </div>
+        
+        <div class="d-grid gap-3">
+          <button class="btn btn-primary btn-lg">
+            <i class="bi bi-telephone me-2"></i>Show Phone Number
+          </button>
+          <button class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-chat-dots me-2"></i>Chat with Seller
+          </button>
+        </div>
+
+        <hr class="my-4">
+        
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <i class="bi bi-shield-check text-success fs-4"></i>
+          <div>
+            <div class="fw-bold small">Verified Seller</div>
+            <div class="text-muted" style="font-size:11px">Verified identity & email</div>
+          </div>
+        </div>
+
+        <div class="alert alert-warning py-2 mb-0" style="font-size:12px">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i>
+          Safety Tip: Never pay in advance. Meet the seller in a public place.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ════ FOOTER ═════════════════════════════════════════════ -->
+<footer style="background:var(--i800);color:rgba(255,255,255,.6);padding:4rem 0 2rem;margin-top:4rem">
+  <div class="container" style="max-width:var(--max-w)">
+    <div class="row g-4 pb-4" style="border-bottom:1px solid rgba(255,255,255,.08)">
+
+      <!-- Brand column -->
+      <div class="col-lg-4">
+        <a href="index.html" class="an-brand mb-3 d-inline-flex" style="color:rgba(255,255,255,.9)">
+          <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+          <span class="brand-text">Auto<span class="brand-accent" style="color:#93b4ff">Nova</span></span>
+        </a>
+        <p style="font-size:.875rem;line-height:1.7;max-width:280px;margin-top:.75rem">
+          India's dedicated marketplace for buying and selling vehicles and genuine spare parts. Get AI-powered price estimates before you list.
+        </p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)">𝕏</a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)">f</a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)"><i class="bi bi-instagram" style="font-size:.85rem"></i></a>
+          <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s;background:rgba(255,255,255,.04)"><i class="bi bi-youtube" style="font-size:.85rem"></i></a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Company</h6>
+        <a href="about.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">About Us</a>
+        <a href="contact.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Contact Us</a>
+        <a href="faq.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">FAQs</a>
+        <a href="privacy.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Privacy Policy</a>
+        <a href="terms.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Terms of Service</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-6 col-lg-2">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Quick Links</h6>
+        <a href="browse.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Browse All</a>
+        <a href="sell.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Sell Item</a>
+        <a href="categories.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">All Categories</a>
+        <a href="estimator.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">AI Estimator</a>
+      </div>
+
+      <!-- Account -->
+      <div class="col-6 col-lg-2">
+        <h6 style="font-family:'Sora',sans-serif;font-weight:700;color:rgba(255,255,255,.9);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem">Account</h6>
+        <a href="login.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Login</a>
+        <a href="register.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Register</a>
+        <a href="dashboard.html" style="display:block;font-size:.875rem;color:rgba(255,255,255,.5);line-height:2.1;transition:color .18s">Dashboard</a>
+      </div>
+
+    </div>
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-3">
+      <small style="color:rgba(255,255,255,.35)">© 2026 AutoNova. All rights reserved. India's Vehicle Marketplace.</small>
+      <small style="color:rgba(255,255,255,.25)">AI Estimator can make mistakes — please verify important details.</small>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/autonova.js"></script>
+</body>
+</html>
